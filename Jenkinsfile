@@ -27,7 +27,7 @@ pipeline {
        
           bat 'mvn checkstyle:checkstyle'
         
-       script {
+       /*script {
           def checkName = "Checkstyle"
           def checkTitle = "Checkstyle Results"
           def checkFile = "target/site/checkstyle.html"
@@ -38,7 +38,7 @@ pipeline {
               summary: readFile(checkFile)
             ]
           ])
-        }
+        }*/
       }
     }
     stage('Security Scan') {
