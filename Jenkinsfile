@@ -43,7 +43,7 @@ pipeline {
     }
     stage('Post-Build') {
   steps {
-   publishChecks name: 'My Check', detailsURL: 'https://github.com/Sathvika-RV/maven-jenkins-pipeline/checkstyle', providerName: 'GitHub Checks'
+   publishChecks name: 'My Check', detailsURL: 'https://github.com/Sathvika-RV/maven-jenkins-pipeline/checkstyle'
 
   }
 }
