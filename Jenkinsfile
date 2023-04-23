@@ -24,9 +24,9 @@ pipeline {
     
     stage('Code Analysis') {
       steps {
-        withMaven(maven: '3.8.6') {
+       
           bat 'mvn checkstyle:checkstyle'
-        }
+        
        script {
           def checkName = "Checkstyle"
           def checkTitle = "Checkstyle Results"
