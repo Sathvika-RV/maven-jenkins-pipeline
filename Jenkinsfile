@@ -64,6 +64,7 @@ pipeline {
     stage('Integration Tests on Staging') {
       steps {
          echo "Running Integration Tests on Staging"
+         bat 'mvn integration-test'
       }
     }
     stage('Deploy to Production') {
