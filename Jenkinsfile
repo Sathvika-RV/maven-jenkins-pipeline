@@ -43,6 +43,7 @@ pipeline {
     }
     stage('Security Scan') {
       steps {
+        bat 'mvn clean'
         bat 'mvn dependency:resolve-plugins'
         bat 'mvn dependency:analyze-report'
         bat 'mvn spotbugs:spotbugs'
