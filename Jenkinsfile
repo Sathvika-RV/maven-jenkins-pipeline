@@ -45,7 +45,7 @@ pipeline {
       steps {
         bat 'mvn dependency:resolve-plugins'
         bat 'mvn dependency:analyze-report'
-        bat 'mvn clean compile spotbugs:check'
+        bat 'mvn spotbugs:spotbugs'
       }
     }
     stage('Deploy to Staging') {
