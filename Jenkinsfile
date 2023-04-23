@@ -21,6 +21,34 @@ pipeline {
               }
             }
         }
+    
+    stage('Code Analysis') {
+      steps {
+        withMaven(maven: '3.8.6') {
+          sh 'mvn checkstyle:checkstyle'
+        }
+      }
+    }
+    stage('Security Scan') {
+      steps {
+        sh 'mvn dependency-check:check'
+      }
+    }
+    stage('Deploy to Staging') {
+      steps {
+        sh 'echo "Deploying to Staging"'
+      }
+    }
+    stage('Integration Tests on Staging') {
+      steps {
+         echo "Running Integration Tests on Staging"
+      }
+    }
+    stage('Deploy to Production') {
+      steps {
+        echo "Deploying to Production"
+      }
+    }
         
 /*
       stage('Sonarqube Analysis - SAST') {
