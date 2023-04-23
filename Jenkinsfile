@@ -43,7 +43,7 @@ pipeline {
     }
     stage('Post-Build') {
   steps {
-    checkstyle canComputeNew: true, defaultEncoding: '', healthy: '', pattern: '**/checkstyle-result.xml', unHealthy: ''
+   publishChecks providerName: 'GitHub Checks', reportURL: 'https://github.comSathvika-RV/maven-jenkins-pipeline/checkstyle', reportName: 'My Check'
   }
 }
 
