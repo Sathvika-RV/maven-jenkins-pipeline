@@ -7,13 +7,13 @@ pipeline {
   stages {
       stage('Build Artifact') {
             steps {
-              sh "mvn clean package -DskipTests=true"
+              bat "mvn clean package -DskipTests=true"
               archive 'target/*.jar' 
             }  
        }
       stage('Test Maven - JUnit') {
             steps {
-              sh "mvn test"
+              bat "mvn test"
             }
             post{
               always{
