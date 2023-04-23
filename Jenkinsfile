@@ -25,18 +25,30 @@ pipeline {
     stage('Code Analysis') {
       steps {
         withMaven(maven: '3.8.6') {
-          sh 'mvn checkstyle:checkstyle'
+          bat 'mvn checkstyle:checkstyle'
+        }
+       script {
+          def checkName = "Checkstyle"
+          def checkTitle = "Checkstyle Results"
+          def checkFile = "target/site/checkstyle.html"
+          publishChecks([
+            [
+              checkName: checkName,
+              checkTitle: checkTitle,
+              summary: readFile(checkFile)
+            ]
+          ])
         }
       }
     }
     stage('Security Scan') {
       steps {
-        sh 'mvn dependency-check:check'
+        bat 'mvn dependency-check:check'
       }
     }
     stage('Deploy to Staging') {
       steps {
-        sh 'echo "Deploying to Staging"'
+        bat 'echo "Deploying to Staging"'
       }
     }
     stage('Integration Tests on Staging') {
