@@ -41,6 +41,12 @@ pipeline {
         }*/
       }
     }
+    stage('Post-Build') {
+  steps {
+    checkstyle canComputeNew: true, defaultEncoding: '', healthy: '', pattern: '**/checkstyle-result.xml', unHealthy: ''
+  }
+}
+
     stage('Security Scan') {
       steps {
         bat 'mvn clean'
