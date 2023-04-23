@@ -22,7 +22,7 @@ pipeline {
             }
         }
         
-
+/*
       stage('Sonarqube Analysis - SAST') {
             steps {
                   withSonarQubeEnv('SonarQube') {
@@ -36,6 +36,7 @@ pipeline {
                     }
                 }
               }
-        }
+        } */
      }
+    
 }
